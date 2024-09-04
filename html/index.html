@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TaskMate</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="app-container">
+      <div class="left-sidebar">
+        <div class="left-sidebar-title"><h1>My Projects</h1></div>
+        <button
+          class="round-button"
+          id="insert-project-title-popup"
+          role="button"
+          onclick="toggleProjectPopup()"
+        >
+          Add New Project
+        </button>
+        <div class="added-projects"></div>
+      </div>
+      <div class="main-content-container">
+        <header class="header-content">
+          <div>
+            <h1>TaskMate</h1>
+          </div>
+        </header>
+        <div class="main-content-container">
+          <h2>Current Tasks</h2>
+          <h2 id="project-name"></h2>
+          <button
+            class="round-button"
+            id="insert-todo-list-popup"
+            role="button"
+            onclick="toggleTodoPopup()"
+          >
+            Add Task
+          </button>
+          <div class="added-todos">
+            <div class="todo-card-container">
+              <h1 class="task-header"></h1>
+              <p class="description-field"></p>
+              <p class="due-date"></p>
+              <p class="priority"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="insert-project-container" id="project-popup">
+        <h1>Add Project</h1>
+        <input
+          type="text"
+          id="projectName"
+          name="projectName"
+          placeholder="Project Name"
+          required
+        />
+        <div class="button-container">
+          <button type="button" id="submit-project" onclick="addProject()">
+            Submit
+          </button>
+          <button
+            type="button"
+            id="cancel-project"
+            onclick="clearProjectInputs()"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+      <div class="insert-todo-container" id="todo-popup">
+        <h1>Add Todo List</h1>
+        <input
+          type="text"
+          id="title"
+          name="title"
+          placeholder="Title"
+          required
+        />
+        <input
+          type="text"
+          id="description"
+          name="description"
+          placeholder="Description"
+          required
+        />
+        <input
+          type="date"
+          id="dueDate"
+          name="dueDate"
+          placeholder="YYYY-MM-DD"
+          required
+        />
+        <label for="priority">Select Priority:</label>
+        <select id="priority" name="priority">
+          <option value="High">High</option>
+          <option value="Medium">Medium</option>
+          <option value="Low">Low</option>
+        </select>
+        <div class="button-container">
+          <button type="button" id="submit-todo" onclick="addTodo()">
+            Submit
+          </button>
+          <button type="button" id="cancel-todo" onclick="clearTodoInputs()">
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="backdrop" id="backdrop"></div>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script src="../js/script.js"></script>
+  </body>
+</html>
